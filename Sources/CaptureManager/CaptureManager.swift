@@ -17,6 +17,7 @@ public protocol CaptureManagerDelegate: AnyObject {
 
 @available(macOS 10.15, *)
 public final class CaptureManager: AVCaptureSession {
+    var debugCount:Int = 0
     
     public weak var delegate: CaptureManagerDelegate?
     
@@ -289,7 +290,8 @@ extension CaptureManager: CaptureDeviceDelegate {
             delegate?.deviceSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         default:
-            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
+            debugCount = debugCount + 1
+            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model) \(debugCount)")
             //delegate?.captureSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         }
