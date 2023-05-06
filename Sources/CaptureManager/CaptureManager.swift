@@ -78,7 +78,11 @@ public final class CaptureManager: AVCaptureSession {
             let mv = CapturePreviewView(frame: NSZeroRect)
             return mv
         }()
-        enableIosDevices()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [self] in
+            self.enableIosDevices()
+        }
+        
         enableObservers()
         
         print("CaptureManager :: init :: COMPLETE")
