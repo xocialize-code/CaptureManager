@@ -269,7 +269,14 @@ public final class CaptureManager: AVCaptureSession {
 @available(macOS 10.15, *)
 extension CaptureManager: CaptureDeviceDelegate {
     func deviceVideoBuffer(model: String, sampleBuffer: CMSampleBuffer, uniqueID: String) {
-        print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
+        switch model {
+        case "iOS Device":
+            break;
+        default:
+            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
+            break;
+        }
+        
     }
     
     func devicePreviewLayer(previewLayer: AVCaptureVideoPreviewLayer, model: String) {
