@@ -62,7 +62,7 @@ public final class CaptureManager: AVCaptureSession {
         captureManagerInit()
     }
     
-    override init() { super.init() }
+    public override init() { super.init() }
     func captureManagerInit(){
         print("CaptureManager :: init :: COMPLETE")
     }
