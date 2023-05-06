@@ -9,7 +9,7 @@ import Cocoa
 import AVFoundation
 import CoreMediaIO
 
-protocol CaptureManagerDelegate: AnyObject {
+public protocol CaptureManagerDelegate: AnyObject {
     func deviceSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureSampleBuffer(sampleBuffer: CMSampleBuffer)
     func deviceLost()
@@ -18,7 +18,7 @@ protocol CaptureManagerDelegate: AnyObject {
 @available(macOS 10.15, *)
 public final class CaptureManager: AVCaptureSession {
     
-    weak var delegate: CaptureManagerDelegate?
+    public weak var delegate: CaptureManagerDelegate?
     
     var observers:[NSObjectProtocol] = [NSObjectProtocol]()
     
@@ -52,7 +52,7 @@ public final class CaptureManager: AVCaptureSession {
         didSet{}
     }
     
-    convenience init(delegate: CaptureManagerDelegate) {
+    public convenience init(delegate: CaptureManagerDelegate) {
         self.init()
         self.delegate = delegate
         sessionQueue.async { [weak self] in
