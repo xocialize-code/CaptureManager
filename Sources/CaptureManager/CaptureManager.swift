@@ -69,17 +69,14 @@ public final class CaptureManager: AVCaptureSession {
     public override init() { super.init() }
     
     func captureManagerInit(){
-        previewDevice = {
-            let mv = CapturePreviewView(frame: NSZeroRect)
-            return mv
-        }()
-        
         previewLaptop = {
             let mv = CapturePreviewView(frame: NSZeroRect)
             return mv
         }()
-        
-        
+        previewDevice = {
+            let mv = CapturePreviewView(frame: NSZeroRect)
+            return mv
+        }()
         enableIosDevices()
         enableObservers()
         
