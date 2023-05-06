@@ -8,7 +8,7 @@
 import Cocoa
 import SceneKit
 
-enum DeviceFamily: String, CaseIterable {
+public enum DeviceFamily: String, CaseIterable {
     case iPhoneLegacy, iPhoneXSeries, iPad, iPadPro11
 
     public var raw: String {
@@ -25,7 +25,7 @@ enum DeviceFamily: String, CaseIterable {
     }
 }
 
-enum Orientation {
+public enum Orientation {
     case portrait, landscape
 }
 
