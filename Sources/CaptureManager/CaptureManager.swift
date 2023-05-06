@@ -12,7 +12,7 @@ import CoreMediaIO
 public protocol CaptureManagerDelegate: AnyObject {
     func deviceSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureSampleBuffer(sampleBuffer: CMSampleBuffer)
-    func theatreMode(mode: TheaterMode)
+    func captureDevice(active: Bool)
     func deviceLost()
 }
 

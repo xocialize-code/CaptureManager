@@ -44,10 +44,6 @@ enum PixelFormat {
     }
 }
 
-public enum TheaterMode {
-    case desktop, capture
-}
-
 struct VideoSpec {
     var fps: Int32?
     var size: CGSize?
