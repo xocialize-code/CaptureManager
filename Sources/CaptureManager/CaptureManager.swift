@@ -63,8 +63,24 @@ public final class CaptureManager: AVCaptureSession {
     }
     
     public override init() { super.init() }
+    
     func captureManagerInit(){
+        enableIosDevices()
         print("CaptureManager :: init :: COMPLETE")
+    }
+    
+    func enableIosDevices(allow_in: UInt32 = 1){
+        
+        var prop = CMIOObjectPropertyAddress(
+            mSelector: CMIOObjectPropertySelector(kCMIOHardwarePropertyAllowScreenCaptureDevices),
+            mScope: CMIOObjectPropertyScope(kCMIOObjectPropertyScopeGlobal),
+            mElement: CMIOObjectPropertyElement(kCMIOObjectPropertyElementMain)
+        )
+        
+        var allow: UInt32 = allow_in;
+        
+        CMIOObjectSetPropertyData(CMIOObjectID(kCMIOObjectSystemObject), &prop, 0, nil, UInt32(MemoryLayout.size(ofValue: allow)), &allow)
+        
     }
     
     func availableDevices() -> [AVCaptureDevice] {
