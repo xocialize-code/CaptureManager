@@ -271,9 +271,11 @@ extension CaptureManager: CaptureDeviceDelegate {
     func deviceVideoBuffer(model: String, sampleBuffer: CMSampleBuffer, uniqueID: String) {
         switch model {
         case "iOS Device":
+            delegate?.deviceSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         default:
-            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
+            //print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
+            delegate?.captureSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         }
         
