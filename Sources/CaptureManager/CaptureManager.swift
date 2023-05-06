@@ -66,6 +66,7 @@ public final class CaptureManager: AVCaptureSession {
     
     func captureManagerInit(){
         enableIosDevices()
+        enableObservers()
         print("CaptureManager :: init :: COMPLETE")
     }
     
