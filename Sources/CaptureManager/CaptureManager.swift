@@ -10,11 +10,13 @@ import AVFoundation
 import CoreMediaIO
 
 protocol CaptureManagerDelegate: AnyObject {
-    
+    func deviceSampleBuffer(sampleBuffer: CMSampleBuffer)
+    func captureSampleBuffer(sampleBuffer: CMSampleBuffer)
+    func deviceLost()
 }
 
 @available(macOS 10.15, *)
-class CaptureManager: AVCaptureSession {
+public final class CaptureManager: AVCaptureSession {
     
     weak var delegate: CaptureManagerDelegate?
     
