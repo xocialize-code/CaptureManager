@@ -275,7 +275,7 @@ extension CaptureManager: CaptureDeviceDelegate {
             break;
         default:
             print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model)")
-            delegate?.captureSampleBuffer(sampleBuffer: sampleBuffer)
+            //delegate?.captureSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         }
         
