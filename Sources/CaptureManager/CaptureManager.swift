@@ -22,6 +22,9 @@ public final class CaptureManager: AVCaptureSession {
     
     var observers:[NSObjectProtocol] = [NSObjectProtocol]()
     
+    var previewDevice:CapturePreviewView!
+    var previewLaptop:CapturePreviewView!
+    
     var sessionQueue = DispatchQueue(label: "sessionManagerQueue", qos: .userInteractive, attributes: [])
     
     var audioPassthruEnabled:Bool = true {
@@ -65,8 +68,20 @@ public final class CaptureManager: AVCaptureSession {
     public override init() { super.init() }
     
     func captureManagerInit(){
+        previewDevice = {
+            let mv = CapturePreviewView(frame: NSZeroRect)
+            return mv
+        }()
+        
+        previewLaptop = {
+            let mv = CapturePreviewView(frame: NSZeroRect)
+            return mv
+        }()
+        
+        
         enableIosDevices()
         enableObservers()
+        
         print("CaptureManager :: init :: COMPLETE")
     }
     
@@ -283,6 +298,11 @@ extension CaptureManager: CaptureDeviceDelegate {
     
     func devicePreviewLayer(previewLayer: AVCaptureVideoPreviewLayer, model: String) {
         print("CaptureManager :: CaptureDeviceDelegate :: devicePreviewLayer :: model :: \(model)")
+        if model == "iOS Device" {
+            previewDevice.initPreviewLayer(videoPreviewLayer: previewLayer)
+        } else {
+            previewLaptop.initPreviewLayer(videoPreviewLayer: previewLayer)
+        }
     }
     
     func autoDetect(deviceFamily: DeviceFamily) {
