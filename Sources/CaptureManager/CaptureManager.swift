@@ -54,7 +54,13 @@ public final class CaptureManager: AVCaptureSession {
     }
     
     var activeCapture:CaptureDevice? {
-        didSet{}
+        didSet{
+            guard activeCapture != nil else {
+                delegate?.captureDevice(active: false)
+                return
+            }
+            delegate?.captureDevice(active: true)
+        }
     }
     
     public convenience init(delegate: CaptureManagerDelegate) {
