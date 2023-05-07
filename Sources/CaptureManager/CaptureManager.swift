@@ -13,6 +13,7 @@ public protocol CaptureManagerDelegate: AnyObject {
     func deviceSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureDevice(active: Bool)
+    func autoDetect(deviceFamily: DeviceFamily)
     func deviceLost()
 }
 
@@ -318,6 +319,4 @@ extension CaptureManager: CaptureDeviceDelegate {
     func autoDetect(deviceFamily: DeviceFamily) {
         print("CaptureManager :: CaptureDeviceDelegate :: autoDetect :: \(deviceFamily)")
     }
-    
-    
 }
