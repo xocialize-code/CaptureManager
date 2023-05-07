@@ -18,7 +18,7 @@ public protocol CaptureManagerDelegate: AnyObject {
 }
 
 @available(macOS 10.15, *)
-public final class CaptureManager: AVCaptureSession {I
+public final class CaptureManager: AVCaptureSession {
     var debugCount:Int = 0
     
     public weak var delegate: CaptureManagerDelegate?
