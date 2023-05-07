@@ -13,12 +13,12 @@ public protocol CaptureManagerDelegate: AnyObject {
     func deviceSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureSampleBuffer(sampleBuffer: CMSampleBuffer)
     func captureDevice(active: Bool)
-    func autoDetect(deviceFamily: DeviceFamily)
+    func autoDetect(deviceFamily: Int)
     func deviceLost()
 }
 
 @available(macOS 10.15, *)
-public final class CaptureManager: AVCaptureSession {
+public final class CaptureManager: AVCaptureSession {I
     var debugCount:Int = 0
     
     public weak var delegate: CaptureManagerDelegate?
@@ -317,7 +317,20 @@ extension CaptureManager: CaptureDeviceDelegate {
     }
     
     func autoDetect(deviceFamily: DeviceFamily) {
-        delegate?.autoDetect(deviceFamily: deviceFamily)
+        switch(deviceFamily) {
+        case .iPad:
+            delegate?.autoDetect(deviceFamily: 1)
+            break
+        case .iPadPro11:
+            delegate?.autoDetect(deviceFamily: 1)
+            break
+        case .iPhoneLegacy:
+            delegate?.autoDetect(deviceFamily: 2)
+            break
+        case .iPhoneXSeries:
+            delegate?.autoDetect(deviceFamily: 3)
+            break
+        }
         print("CaptureManager :: CaptureDeviceDelegate :: autoDetect :: \(deviceFamily)")
     }
 }
