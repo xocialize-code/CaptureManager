@@ -317,6 +317,7 @@ extension CaptureManager: CaptureDeviceDelegate {
     }
     
     func autoDetect(deviceFamily: DeviceFamily) {
+        delegate?.autoDetect(deviceFamily: deviceFamily)
         print("CaptureManager :: CaptureDeviceDelegate :: autoDetect :: \(deviceFamily)")
     }
 }
