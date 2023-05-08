@@ -40,7 +40,7 @@ class CaptureDevice: NSObject {
     
     var videoConnection:AVCaptureConnection?
     var audioConnection:AVCaptureConnection?
-    var videoPreviewConnection:AVCaptureConnection? // Need to figure out why the metal conversion from the BM Devices is so choppy
+    var videoPreviewConnection:AVCaptureConnection?
     var audioPreviewConnection:AVCaptureConnection?
     
     var audioPreview:AVCaptureAudioPreviewOutput? //This is temporary until I figure out how to do it with the sample buffer
