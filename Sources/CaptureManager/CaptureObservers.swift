@@ -8,7 +8,7 @@
 import Cocoa
 import AVFoundation
 
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 16.0, *)
 extension CaptureManager {
     
     func enableObservers(){

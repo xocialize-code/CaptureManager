@@ -17,7 +17,7 @@ public protocol CaptureManagerDelegate: AnyObject {
     func deviceLost()
 }
 
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 16.0, *)
 public final class CaptureManager: AVCaptureSession {
     var debugCount:Int = 0
     
@@ -291,7 +291,7 @@ public final class CaptureManager: AVCaptureSession {
     
 }
 
-@available(macOS 10.15, *)
+@available(macOS 10.15, iOS 16.0, *)
 extension CaptureManager: CaptureDeviceDelegate {
     func deviceVideoBuffer(model: String, sampleBuffer: CMSampleBuffer, uniqueID: String) {
         switch model {
