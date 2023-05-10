@@ -42,7 +42,7 @@ final public class CapturePreviewView: UIView {
 public final class CapturePreviewView: NSView {
 
     
-    override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) }
+    public override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) }
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
     
