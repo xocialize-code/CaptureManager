@@ -46,7 +46,7 @@ public final class CapturePreviewView: NSView {
     
     required init?(coder: NSCoder) { super.init(coder: coder) }
     
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         self.wantsLayer = true
         layer?.masksToBounds = true
