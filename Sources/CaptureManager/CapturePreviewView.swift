@@ -39,7 +39,7 @@ final public class CapturePreviewView: UIView {
     
 }
 #else
-class CapturePreviewView: NSView {
+public final class CapturePreviewView: NSView {
 
     
     override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) }
