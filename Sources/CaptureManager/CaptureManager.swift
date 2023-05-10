@@ -299,8 +299,8 @@ extension CaptureManager: CaptureDeviceDelegate {
             delegate?.deviceSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         default:
-//            debugCount = debugCount + 1
-//            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model) \(debugCount)")
+            debugCount = debugCount + 1
+            print("CaptureManager :: CaptureDeviceDelegate :: deviceVideoBuffer :: model :: \(model) \(debugCount)")
             delegate?.captureSampleBuffer(sampleBuffer: sampleBuffer)
             break;
         }
