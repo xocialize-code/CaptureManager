@@ -14,7 +14,7 @@ import Cocoa
 import AVFoundation
 
 #if os(iOS)
-class CapturePreviewView: UIView {
+final public class CapturePreviewView: UIView {
 
     
     override func draw(_ dirtyRect: NSRect) { super.draw(dirtyRect) }
