@@ -26,7 +26,7 @@ public final class CaptureManager: AVCaptureSession {
     var observers:[NSObjectProtocol] = [NSObjectProtocol]()
     
     var previewDevice:CapturePreviewView!
-    var previewLaptop:CapturePreviewView!
+    public var previewLaptop:CapturePreviewView!
     
     var sessionQueue = DispatchQueue(label: "sessionManagerQueue", qos: .userInteractive, attributes: [])
     
